@@ -1,0 +1,592 @@
+@font-face {
+  font-family: "Nimbus Sans L";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Nimbus Sans L"), local("NimbusSansL"), url("../../assets/fonts/nimbus-sans-l-regular.woff2") format("woff2");
+  font-display: fallback;
+}
+@font-face {
+  font-family: "Nimbus Sans L";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Nimbus Sans L Bold"), local("NimbusSansL-Bold"), url("../../assets/fonts/nimbus-sans-l-700.woff2") format("woff2");
+  font-display: fallback;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Source Code Pro"), local("SourceCodePro-Regular"), url("../../assets/fonts/source-code-pro-v8-latin-regular.woff2") format("woff2");
+  font-display: fallback;
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Roboto"), local("Roboto-Regular"), url("../../assets/fonts/roboto-v18-latin-regular.woff2") format("woff2");
+  font-display: fallback;
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: italic;
+  font-weight: 400;
+  src: local("Roboto Italic"), local("Roboto-Italic"), url("../../assets/fonts/roboto-v18-latin-italic.woff2") format("woff2");
+  font-display: fallback;
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../../assets/fonts/roboto-v18-latin-700.woff2") format("woff2");
+  font-display: fallback;
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: italic;
+  font-weight: 700;
+  src: local("Roboto Bold Italic"), local("Roboto-BoldItalic"), url("../../assets/fonts/roboto-v18-latin-700italic.woff2") format("woff2");
+  font-display: fallback;
+}
+.cardcast-logo {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  font-size: inherit;
+  vertical-align: -0.125em;
+  background-image: url(../../assets/images/cardcast.png);
+  background-size: contain;
+  margin-right: 0.5em;
+}
+
+.minimal-card-size #game, .minimal-card-size #card-editor .game-card, #card-editor .minimal-card-size .game-card {
+  --card-aspect-ratio: 0;
+}
+.minimal-card-size #game ul.cards, .minimal-card-size #card-editor .game-card ul.cards, #card-editor .minimal-card-size .game-card ul.cards {
+  flex-direction: column;
+  align-items: stretch;
+  align-content: stretch;
+}
+.minimal-card-size #game ol.card-set, .minimal-card-size #card-editor .game-card ol.card-set, #card-editor .minimal-card-size .game-card ol.card-set {
+  align-items: stretch;
+  align-content: stretch;
+}
+.minimal-card-size #game ol.card-set li, .minimal-card-size #card-editor .game-card ol.card-set li, #card-editor .minimal-card-size .game-card ol.card-set li {
+  height: auto;
+  flex-grow: 1;
+}
+.minimal-card-size #game .with-byline, .minimal-card-size #card-editor .game-card .with-byline, #card-editor .minimal-card-size .game-card .with-byline {
+  align-items: stretch;
+  align-content: stretch;
+}
+.minimal-card-size #game .game-card:not(.ignore-minimal-card-size), .minimal-card-size #card-editor .game-card .game-card:not(.ignore-minimal-card-size), #card-editor .minimal-card-size .game-card .game-card:not(.ignore-minimal-card-size) {
+  flex-grow: 1;
+  flex-shrink: 1;
+  width: auto;
+}
+.minimal-card-size #game .game-card:not(.ignore-minimal-card-size) .content p, .minimal-card-size #card-editor .game-card .game-card:not(.ignore-minimal-card-size) .content p, #card-editor .minimal-card-size .game-card .game-card:not(.ignore-minimal-card-size) .content p {
+  justify-content: center;
+  text-align: center;
+}
+.minimal-card-size #game .game-card:not(.ignore-minimal-card-size) .info, .minimal-card-size #card-editor .game-card .game-card:not(.ignore-minimal-card-size) .info, #card-editor .minimal-card-size .game-card .game-card:not(.ignore-minimal-card-size) .info {
+  display: none;
+}
+.minimal-card-size #game .game-card:not(.ignore-minimal-card-size) .aspect, .minimal-card-size #card-editor .game-card .game-card:not(.ignore-minimal-card-size) .aspect, #card-editor .minimal-card-size .game-card .game-card:not(.ignore-minimal-card-size) .aspect {
+  position: static;
+  height: auto;
+  width: auto;
+  padding: 0;
+  transition: none;
+}
+.minimal-card-size #game .game-card:not(.ignore-minimal-card-size) .aspect > *, .minimal-card-size #card-editor .game-card .game-card:not(.ignore-minimal-card-size) .aspect > *, #card-editor .minimal-card-size .game-card .game-card:not(.ignore-minimal-card-size) .aspect > * {
+  position: static;
+  width: auto;
+  height: auto;
+}
+.minimal-card-size #game .game-card:not(.ignore-minimal-card-size) .side.back, .minimal-card-size #card-editor .game-card .game-card:not(.ignore-minimal-card-size) .side.back, #card-editor .minimal-card-size .game-card .game-card:not(.ignore-minimal-card-size) .side.back {
+  display: none;
+}
+.minimal-card-size #game .game-card:not(.ignore-minimal-card-size) .side.back .content, .minimal-card-size #card-editor .game-card .game-card:not(.ignore-minimal-card-size) .side.back .content, #card-editor .minimal-card-size .game-card .game-card:not(.ignore-minimal-card-size) .side.back .content {
+  text-align: center;
+}
+.minimal-card-size #game .game-card:not(.ignore-minimal-card-size) .side.back .content p, .minimal-card-size #card-editor .game-card .game-card:not(.ignore-minimal-card-size) .side.back .content p, #card-editor .minimal-card-size .game-card .game-card:not(.ignore-minimal-card-size) .side.back .content p {
+  display: none;
+}
+.minimal-card-size #game .game-card:not(.ignore-minimal-card-size) .side.back .content::after, .minimal-card-size #card-editor .game-card .game-card:not(.ignore-minimal-card-size) .side.back .content::after, #card-editor .minimal-card-size .game-card .game-card:not(.ignore-minimal-card-size) .side.back .content::after {
+  content: "?";
+}
+.minimal-card-size #game .game-card:not(.ignore-minimal-card-size).face-down .side.back, .minimal-card-size #card-editor .game-card .game-card:not(.ignore-minimal-card-size).face-down .side.back, #card-editor .minimal-card-size .game-card .game-card:not(.ignore-minimal-card-size).face-down .side.back {
+  display: block;
+}
+.minimal-card-size #game .game-card:not(.ignore-minimal-card-size).face-down .side.front, .minimal-card-size #card-editor .game-card .game-card:not(.ignore-minimal-card-size).face-down .side.front, #card-editor .minimal-card-size .game-card .game-card:not(.ignore-minimal-card-size).face-down .side.front {
+  display: none;
+}
+.minimal-card-size #game .hand, .minimal-card-size #card-editor .game-card .hand, #card-editor .minimal-card-size .game-card .hand,
+.minimal-card-size #game .plays,
+.minimal-card-size #card-editor .game-card .plays,
+#card-editor .minimal-card-size .game-card .plays {
+  margin-top: 5em;
+}
+.minimal-card-size #game .round, .minimal-card-size #card-editor .game-card .round, #card-editor .minimal-card-size .game-card .round {
+  justify-content: stretch;
+  align-items: stretch;
+  position: sticky;
+  top: 5em;
+}
+.minimal-card-size #game .liked .side::after, .minimal-card-size #card-editor .game-card .liked .side::after, #card-editor .minimal-card-size .game-card .liked .side::after {
+  right: 1em;
+  top: 50%;
+  margin-top: -1.5em;
+  width: 3em;
+  height: 3em;
+}
+
+.square-card-size #game, .square-card-size #card-editor .game-card, #card-editor .square-card-size .game-card {
+  --card-aspect-ratio: 1;
+}
+
+#game, #card-editor .game-card {
+  --card-aspect-ratio: 0.7142857143;
+  font-size: 0.5rem;
+}
+@media screen and (min-width: 20rem) {
+  #game, #card-editor .game-card {
+    font-size: calc( 0.5rem + 0.3 * ((100vw - 20rem) / 44) );
+  }
+}
+@media screen and (min-width: 64rem) {
+  #game, #card-editor .game-card {
+    font-size: 0.8rem;
+  }
+}
+
+.game-card {
+  width: 18em;
+  margin: 0.5em;
+  perspective: 100vw;
+  text-rendering: optimizeLegibility;
+  font-family: "Helvetica Neue", "Nimbus Sans L", sans-serif;
+  font-weight: bold;
+}
+.game-card p {
+  margin: 0;
+}
+.game-card.response {
+  --bg: #ffffff;
+  --fg: #000000;
+}
+.game-card.call {
+  --bg: #000000;
+  --fg: #ffffff;
+}
+.game-card.call p {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: baseline;
+  align-content: flex-start;
+  justify-content: flex-start;
+}
+.game-card.call p span {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-break: break-all;
+}
+.game-card.call p .text {
+  display: contents;
+}
+.game-card.call p .slot {
+  display: contents;
+  text-decoration: underline;
+}
+.game-card.call p .slot:empty {
+  display: block;
+  height: 1em;
+  flex-grow: 1;
+  flex-basis: 2em;
+  max-width: 14em;
+  border-bottom: 0.1em solid var(--fg);
+}
+.game-card .aspect {
+  transition: transform 0.75s;
+  transform-style: preserve-3d;
+  position: relative;
+  height: 0;
+  width: 100%;
+  padding-top: calc(1 / var(--card-aspect-ratio) * 100%);
+}
+.game-card .aspect .side {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.game-card.face-down .aspect {
+  transform: rotateY(180deg);
+}
+.game-card .side {
+  box-sizing: border-box;
+  background: var(--bg);
+  color: var(--fg);
+  border-radius: 0.75em;
+  border: 0.3em solid var(--bg);
+  box-shadow: 0.15em 0.15em 0.4em rgba(0, 0, 0, 0.3), -0.05em -0.05em 0.4em rgba(0, 0, 0, 0.3);
+  padding: 1em;
+  backface-visibility: hidden;
+  transform: rotateX(0deg);
+}
+.game-card .side.back {
+  transform: rotateY(180deg);
+}
+.game-card .side.back .content p {
+  line-height: 1em;
+  font-size: 2em;
+}
+.game-card .side.front {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.game-card .side.front .content {
+  flex-grow: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.game-card .side p {
+  color: var(--fg);
+}
+.game-card .content {
+  font-size: 1.6em;
+  font-weight: 700;
+  line-height: 1.4em;
+}
+.game-card textarea {
+  display: block;
+  vertical-align: top;
+  font: inherit;
+  background-color: inherit;
+  resize: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+.game-card .card-info {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin: 0.5em 0.25em 0.25em 0.25em;
+  font-size: 0.75em;
+  padding: 0.25em;
+}
+.game-card .card-info span {
+  flex-grow: 1;
+}
+.game-card .card-info .source {
+  font-size: 1.2em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.game-card .card-info .source:before {
+  content: "";
+  background-image: url(../../assets/images/deck.svg);
+  background-size: 100% 100%;
+  display: inline-block;
+  width: 2.8em;
+  height: 2em;
+}
+.game-card .card-info .instructions {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+.game-card .card-info .instructions li {
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  margin-top: 0.2em;
+  font-size: 1.4em;
+}
+
+.instruction {
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-rendering: optimizeLegibility;
+}
+.instruction:before {
+  content: "[";
+}
+.instruction:after {
+  content: "]";
+}
+
+.game-card .instruction:before, .game-card .instruction:after {
+  content: none;
+}
+
+.amount {
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  width: 1.2em;
+  height: 1.2em;
+  margin-left: 0.3em;
+  border-radius: 50%;
+  background: var(--fg, #000000);
+  color: var(--bg, #ffffff);
+}
+
+@font-face {
+  font-family: "Nimbus Sans L";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Nimbus Sans L"), local("NimbusSansL"), url("../../assets/fonts/nimbus-sans-l-regular.woff2") format("woff2");
+  font-display: fallback;
+}
+@font-face {
+  font-family: "Nimbus Sans L";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Nimbus Sans L Bold"), local("NimbusSansL-Bold"), url("../../assets/fonts/nimbus-sans-l-700.woff2") format("woff2");
+  font-display: fallback;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Source Code Pro"), local("SourceCodePro-Regular"), url("../../assets/fonts/source-code-pro-v8-latin-regular.woff2") format("woff2");
+  font-display: fallback;
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Roboto"), local("Roboto-Regular"), url("../../assets/fonts/roboto-v18-latin-regular.woff2") format("woff2");
+  font-display: fallback;
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: italic;
+  font-weight: 400;
+  src: local("Roboto Italic"), local("Roboto-Italic"), url("../../assets/fonts/roboto-v18-latin-italic.woff2") format("woff2");
+  font-display: fallback;
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../../assets/fonts/roboto-v18-latin-700.woff2") format("woff2");
+  font-display: fallback;
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: italic;
+  font-weight: 700;
+  src: local("Roboto Bold Italic"), local("Roboto-BoldItalic"), url("../../assets/fonts/roboto-v18-latin-700italic.woff2") format("woff2");
+  font-display: fallback;
+}
+#root {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 0.5em;
+  font-size: 1.2em;
+  font-family: "Roboto", sans-serif;
+  background: #e2e2e2 url(../../assets/images/background.svg) repeat;
+}
+
+button,
+input {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+#editor {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 1.5em);
+}
+
+#cards {
+  display: flex;
+  flex-shrink: 1;
+  flex-grow: 1;
+  min-height: 1em;
+  gap: 0.5em;
+  list-style: none;
+  padding: 0.5em;
+}
+
+#calls {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+#responses {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-size: 1.25em;
+  gap: 0.25em;
+  align-items: center;
+  justify-content: center;
+}
+.controls textarea {
+  flex-grow: 1;
+  width: 18em;
+}
+.controls .toggles {
+  display: flex;
+  justify-content: center;
+  gap: 0.25em;
+}
+
+#add-controls {
+  font-size: 1em;
+  flex-direction: row;
+}
+
+#edit-controls {
+  justify-content: flex-start;
+}
+
+.part-editor {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.part-editor textarea {
+  flex-grow: 1;
+}
+
+#calls,
+#responses {
+  flex-grow: 1;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0.25em;
+}
+#calls .top,
+#responses .top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+#calls h2,
+#responses h2 {
+  margin: 0;
+}
+#calls ul,
+#responses ul {
+  list-style: disc;
+  padding: 0 0 0 1.5em;
+  overflow: auto;
+  max-height: 100%;
+}
+#calls li,
+#responses li {
+  font-family: "Helvetica Neue", "Nimbus Sans L", sans-serif;
+  padding: 0.25em 0;
+}
+
+.selected {
+  font-weight: bold;
+}
+
+#card-editor {
+  display: flex;
+  justify-content: center;
+}
+.line-editor ol {
+  list-style: none;
+  padding: 0;
+  min-height: 1.1em;
+  line-height: 1.1em;
+  max-width: 10em;
+  display: flex;
+  flex-wrap: wrap;
+}
+.line-editor input {
+  width: 5em;
+}
+
+.transform-editor {
+  font-weight: 700;
+}
+
+[aria-pressed=true] {
+  box-shadow: inset 0 0 0 0.15rem #000, inset 0.25em 0.25em 0 #fff;
+}
+
+.game-card.call .text.selected,
+.game-card.call .text.selected span,
+.game-card.call .slot.selected,
+.game-card.call .slot.selected span {
+  background-color: rgba(255, 255, 0, 0.4);
+}
+.game-card.call .text:hover,
+.game-card.call .text:hover span, .game-card.call .text.target,
+.game-card.call .text.target span,
+.game-card.call .slot:hover,
+.game-card.call .slot:hover span,
+.game-card.call .slot.target,
+.game-card.call .slot.target span {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.game-card.call .text.dragged,
+.game-card.call .text.dragged span,
+.game-card.call .slot.dragged,
+.game-card.call .slot.dragged span {
+  opacity: 0.5;
+}
+
+#import {
+  display: none;
+  z-index: 10;
+}
+#import.open {
+  position: fixed;
+  left: 5em;
+  top: 5em;
+  bottom: 5em;
+  right: 5em;
+  background-color: #cccccc;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+#import .textareas {
+  flex-grow: 1;
+  display: flex;
+}
+#import .textareas textarea {
+  flex-grow: 1;
+}
+#import .textareas .calls {
+  background-color: #000000;
+  color: #ffffff;
+}
+#import .textareas .responses {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.errors {
+  color: #f5f5f5;
+  background-color: #c41c00;
+}
+
+/*# sourceMappingURL=many-decks.css.map */
