@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>Many Decks</title>
+    <meta name="description" content="A deck editor for Massive Decks." />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      href="assets/styles/many-decks.css"
+      type="text/css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/json5@^2.0.0/dist/index.min.js"></script>
+    <script src="assets/scripts/many-decks.js"></script>
+  </head>
+  <body>
+    <noscript>
+      <p>Many Decks requires javascript to run.</p>
+    </noscript>
+    <script>
+      const app = Elm.ManyDecks.init();
+      app.ports.parseJson5.subscribe((json5) => {
+        try {
+          app.ports.parsedJson5.send(JSON5.parse(json5));
+        } catch (error) {
+          app.ports.json5Error.send(error.message);
+        }
+      });
+    </script>
+  </body>
+</html>

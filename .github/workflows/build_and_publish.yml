@@ -1,0 +1,44 @@
+name: Build and publish to GitHub.
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Build elm code.
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository.
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Install dependencies.
+        run: npm install
+      - name: Build.
+        run: npm run build
+      - name: Store built files for publish job.
+        uses: actions/upload-artifact@v1
+        with:
+          name: make-decks
+          path: ./dist/
+
+  publish:
+    name: Publish to GitHub pages.
+    needs: build
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Retrieve built files from build job.
+        uses: actions/download-artifact@v1
+        with:
+          name: make-decks
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: make-decks/

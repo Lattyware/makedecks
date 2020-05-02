@@ -1,0 +1,4 @@
+[submodule "massivedecks"]
+	path = massivedecks
+	url = git@github.com:Lattyware/massivedecks.git
+	branch = master

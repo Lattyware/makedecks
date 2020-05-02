@@ -1,0 +1,230 @@
+@import "../../massivedecks/client/src/scss/cards";
+@import "../../massivedecks/client/src/scss/fonts";
+
+#root {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 0.5em;
+
+  font-size: 1.2em;
+  font-family: "Roboto", sans-serif;
+
+  background: $background url(../../assets/images/background.svg) repeat;
+}
+
+button,
+input {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+#editor {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 1.5em);
+}
+
+#cards {
+  display: flex;
+  flex-shrink: 1;
+  flex-grow: 1;
+  min-height: 1em;
+  gap: 0.5em;
+
+  list-style: none;
+  padding: 0.5em;
+}
+
+#calls {
+  background-color: $call-background;
+  color: $call-color;
+}
+
+#responses {
+  background-color: $response-background;
+  color: $response-color;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-size: 1.25em;
+  gap: 0.25em;
+  align-items: center;
+  justify-content: center;
+
+  textarea {
+    flex-grow: 1;
+    width: $card-width;
+  }
+
+  .toggles {
+    display: flex;
+    justify-content: center;
+    gap: 0.25em;
+  }
+}
+
+#add-controls {
+  font-size: 1em;
+  flex-direction: row;
+}
+
+#edit-controls {
+  justify-content: flex-start;
+}
+
+.part-editor {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+
+  textarea {
+    flex-grow: 1;
+  }
+}
+
+#calls,
+#responses {
+  flex-grow: 1;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0.25em;
+
+  .top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  h2 {
+    margin: 0;
+  }
+
+  ul {
+    list-style: disc;
+    padding: 0 0 0 1.5em;
+    overflow: auto;
+    max-height: 100%;
+  }
+
+  li {
+    font-family: "Helvetica Neue", "Nimbus Sans L", sans-serif;
+    padding: 0.25em 0;
+  }
+}
+
+.selected {
+  font-weight: bold;
+}
+
+#card-editor {
+  display: flex;
+  justify-content: center;
+
+  .game-card {
+    @extend #game;
+  }
+}
+
+.line-editor {
+  ol {
+    list-style: none;
+    padding: 0;
+
+    min-height: 1.1em;
+    line-height: 1.1em;
+
+    max-width: 10em;
+
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  input {
+    width: 5em;
+  }
+}
+
+.transform-editor {
+  font-weight: 700;
+}
+
+[aria-pressed="true"] {
+  box-shadow: inset 0 0 0 0.15rem #000, inset 0.25em 0.25em 0 #fff;
+}
+
+.game-card.call {
+  .text,
+  .slot {
+    &.selected {
+      &,
+      span {
+        background-color: transparentize(#ffff00, 0.6);
+      }
+    }
+
+    &:hover,
+    &.target {
+      &,
+      span {
+        background-color: transparentize(#ffffff, 0.6);
+      }
+    }
+
+    &.dragged {
+      &,
+      span {
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+#import {
+  display: none;
+  z-index: 10;
+
+  &.open {
+    position: fixed;
+    left: 5em;
+    top: 5em;
+    bottom: 5em;
+    right: 5em;
+
+    background-color: #cccccc;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .textareas {
+    flex-grow: 1;
+    display: flex;
+
+    textarea {
+      flex-grow: 1;
+    }
+
+    .calls {
+      background-color: $call-background;
+      color: $call-color;
+    }
+
+    .responses {
+      background-color: $response-background;
+      color: $response-color;
+    }
+  }
+}
+
+.errors {
+  color: $on-error;
+  background-color: $error;
+}
