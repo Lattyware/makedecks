@@ -1,4 +1,4 @@
-module ManyDecks.Editor exposing (Model, Msg, init, update, view)
+module MakeDecks.Editor exposing (Model, Msg, init, update, view)
 
 import FontAwesome.Icon as Icon
 import FontAwesome.Layering as Icon
@@ -10,7 +10,7 @@ import Html.Attributes.Aria as HtmlA
 import Html.Events as HtmlE
 import Html5.DragDrop as DragDrop
 import List.Extra as List
-import ManyDecks.Template as Template
+import MakeDecks.Template as Template
 import MassiveDecks.Card.Call as Call
 import MassiveDecks.Card.Model as Card
 import MassiveDecks.Card.Parts as Parts exposing (Part)

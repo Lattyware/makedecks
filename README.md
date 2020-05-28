@@ -1,5 +1,9 @@
-# Make Decks
+# Deprecated
 
+Make Decks has been replaced by [Many Decks](https://github.com/Lattyware/manydecks/), a project that offers a much 
+more user-friendly editing experience, and many more features.
+
+# [Make Decks][hosted]
 
 [![Build Status](https://img.shields.io/github/workflow/status/Lattyware/makedecks/Build%20and%20publish%20to%20GitHub.)](https://github.com/Lattyware/makedecks/actions)
 [![License](https://img.shields.io/github/license/Lattyware/manydecks)](LICENSE)

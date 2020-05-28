@@ -1,4 +1,4 @@
-module ManyDecks.Loader exposing (Model, Msg, init, subscriptions, update, view)
+module MakeDecks.Loader exposing (Model, Msg, init, subscriptions, update, view)
 
 import File exposing (File)
 import File.Download
@@ -10,8 +10,8 @@ import Html.Attributes as HtmlA
 import Html.Events as HtmlE
 import Json.Decode as Json
 import Json.Encode
-import ManyDecks.Ports as Ports
-import ManyDecks.Template as Template
+import MakeDecks.Ports as Ports
+import MakeDecks.Template as Template
 import MassiveDecks.Card.Parts as Parts
 import Task exposing (Task)
 

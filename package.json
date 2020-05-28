@@ -9,14 +9,14 @@
     "build": "npm run build:html && npm run build:elm && npm run build:scss && npm run build:assets",
     "build:debug": "npm run build:html && npm run build:elm:debug && npm run build:scss && npm run build:assets",
     "build:html": "cp src/html/index.html dist/",
-    "build:elm": "npx elm make src/elm/ManyDecks.elm --optimize --output dist/assets/scripts/many-decks.js && npx uglifyjs dist/assets/scripts/many-decks.js --compress 'pure_funcs=\"F2,F3,F4,F5,F6,F7,F8,F9,A2,A3,A4,A5,A6,A7,A8,A9\",pure_getters,keep_fargs=false,unsafe_comps,unsafe' | npx uglifyjs --mangle --output=dist/assets/scripts/many-decks.js",
-    "build:elm:debug": "npx elm make src/elm/ManyDecks.elm --debug --output dist/assets/scripts/many-decks.js",
-    "build:scss": "npx sass src/scss/many-decks.scss dist/assets/styles/many-decks.css",
+    "build:elm": "npx elm make src/elm/MakeDecks.elm --optimize --output dist/assets/scripts/make-decks.js && npx uglifyjs dist/assets/scripts/make-decks.js --compress 'pure_funcs=\"F2,F3,F4,F5,F6,F7,F8,F9,A2,A3,A4,A5,A6,A7,A8,A9\",pure_getters,keep_fargs=false,unsafe_comps,unsafe' | npx uglifyjs --mangle --output=dist/assets/scripts/make-decks.js",
+    "build:elm:debug": "npx elm make src/elm/MakeDecks.elm --debug --output dist/assets/scripts/make-decks.js",
+    "build:scss": "npx sass src/scss/make-decks.scss dist/assets/styles/make-decks.css",
     "build:assets": "cp -r massivedecks/client/assets/* dist/assets/",
     "prewatch": "npm run build:debug",
     "watch": "npx concurrently \"npm:watch:elm\" \"npm:watch:sass\"",
-    "watch:elm": "npx elm-live --dir=dist --hot -- src/elm/ManyDecks.elm --debug --output=dist/assets/scripts/many-decks.js",
-    "watch:sass": "npx sass --watch src/scss/many-decks.scss dist/assets/styles/many-decks.css"
+    "watch:elm": "npx elm-live --dir=dist --hot -- src/elm/MakeDecks.elm --debug --output=dist/assets/scripts/make-decks.js",
+    "watch:sass": "npx sass --watch src/scss/make-decks.scss dist/assets/styles/make-decks.css"
   },
   "repository": {
     "type": "git",

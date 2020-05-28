@@ -1,20 +1,23 @@
-module ManyDecks exposing (main)
+module MakeDecks exposing (main)
 
 import Browser
 import Browser.Navigation as Navigation
+import FontAwesome.Icon as Icon
+import FontAwesome.Solid as Icon
 import FontAwesome.Styles as Icon
 import Html
 import Html.Attributes as HtmlA
-import ManyDecks.Editor as Editor
-import ManyDecks.Loader as Loader
-import ManyDecks.Msg exposing (Msg(..))
-import ManyDecks.Template as Template
+import MakeDecks.Editor as Editor
+import MakeDecks.Loader as Loader
+import MakeDecks.Msg exposing (Msg(..))
+import MakeDecks.Template as Template
 import MassiveDecks.Cast.Model as Cast
 import MassiveDecks.Model exposing (Shared)
 import MassiveDecks.Notifications as Notifications
 import MassiveDecks.Settings as Settings
 import MassiveDecks.Speech as Speech
 import MassiveDecks.Strings.Languages as Lang
+import MassiveDecks.Util.Html as Html
 import MassiveDecks.Util.Url as Url
 import Url exposing (Url)
 
@@ -111,6 +114,12 @@ view model =
     , body =
         [ Html.div [ HtmlA.id "root" ]
             [ Icon.css
+            , Html.h1 []
+                [ Icon.exclamationTriangle |> Icon.viewIcon
+                , Html.text " Make Decks has been replaced by "
+                , Html.blankA [ HtmlA.href "https://decks.rereadgames.com" ] [ Html.text "Many Decks" ]
+                , Html.text " a project that offers a much more user-friendly editing experience, and many more features."
+                ]
             , Loader.view LoaderMsg model.loader
             , Editor.view EditorMsg model.shared model.deck model.editor
             ]

@@ -1,4 +1,4 @@
-port module ManyDecks.Ports exposing (json5Error, parseJson5, parsedJson5)
+port module MakeDecks.Ports exposing (json5Error, parseJson5, parsedJson5)
 
 import Json.Decode as Json
 

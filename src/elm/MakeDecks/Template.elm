@@ -1,4 +1,4 @@
-module ManyDecks.Template exposing (Call(..), Card(..), Deck, Response(..), decode, encode)
+module MakeDecks.Template exposing (Call(..), Card(..), Deck, Response(..), decode, encode)
 
 import Json.Decode as Json
 import Json.Encode
